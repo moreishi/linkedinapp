@@ -5,12 +5,14 @@ var request = require('request');
 var cheerio = require('cheerio');
 
 router.post('/linkedin',function(req,res) {
+  // Assume data is created to database
   var token = jwt.sign(req.body, 'SECRET_KEY');
   res.json(token);
 });
 
 router.get('/work-history', function(req,res) {
   try {
+    // Assume credentials are fetch in db to verify
     jwt.verify(req.query['token'], 'SECRET_KEY', function(err, decoded) {
       if(err) { return res.json({ success: false, message: 'Failed to authenticate token.' }); }
       request(decoded.profile, function(error, response, html){
@@ -28,6 +30,7 @@ router.get('/work-history', function(req,res) {
 
 router.post('/verify',function(req,res) {
   try {
+    // Assume credentials are fetch in db to verify
     jwt.verify(req.body.token, 'SECRET_KEY', function(err, decoded) {
       if(err) { return res.json({ success: false, message: 'Failed to authenticate token.' }); }
       res.json({ success: true, message: 'User is authenticated' });
@@ -36,6 +39,7 @@ router.post('/verify',function(req,res) {
   
 });
 
+// a routine for scraping the data.
 function fetchScrape($,experience,cb) {
   var exp = [];
   experience.children('div').each(function(i,v) {          
