@@ -10,10 +10,7 @@ $(document).ready(function() {
       $('#logout').click(function() {
         localStorage.removeItem('token');
         setTimeout(function() {
-          $('.work-history').empty();
-          $('#logout').addClass('hide');
-          $('#authorize').removeClass('hide');
-          $('.thumb').removeClass('hide');
+          location.reload();
         }, 500);
       });
 
