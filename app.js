@@ -59,8 +59,10 @@ app.use(function(err, req, res, next) {
   });
 });
 
-app.listen(3000);
+var port = 3000;
 
-console.log('The server is running on port 3000');
+app.listen(port);
+
+console.log('The server is up and running on port ' + port);
 
 module.exports = app;
