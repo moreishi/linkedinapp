@@ -16,6 +16,13 @@ This is a simple application for linkedIn API. What it does is to login using Li
 	* request
 	* cheerio
 
+	# To test these app locally
+	* git clone <repository>
+	* npm install
+	* npm start
+
+	The server runs on localhost:3000	// e.g http://localhost:3000
+
 I used JWT for backend authentication and LinkedIn API for social media login details.
 
 #### Problem encountered while creating the app
