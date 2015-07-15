@@ -4,6 +4,7 @@ $(document).ready(function() {
       if(!localStorage.getItem('token')) { 
         $('#logout').addClass('hide');
         $('#authorize').removeClass('hide');
+        $('.thumb').removeClass('hide');
       }
 
       $('#logout').click(function() {
@@ -12,6 +13,7 @@ $(document).ready(function() {
           $('.work-history').empty();
           $('#logout').addClass('hide');
           $('#authorize').removeClass('hide');
+          $('.thumb').removeClass('hide');
         }, 500);
       });
 
@@ -71,6 +73,7 @@ $(document).ready(function() {
         $('.work-history').removeClass('hide');
         $('#logout').removeClass('hide');
         $('#authorize').addClass('hide');
+        $('.thumb').addClass('hide');
       });
     }
 
